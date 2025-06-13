@@ -81,7 +81,7 @@ Create a .env file and add your MongoDB connection string:
 MONGODB_URI=your_mongo_connection_string
 ```
 
-4. Start the server
+### 4. Start the server
 
 ```bash
 npm start
