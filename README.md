@@ -29,16 +29,15 @@ A beginner-friendly backend project built using **Node.js**, **Express.js**, and
 
 restaurant-backend/
 ├── models/
-│ └── Person.js
+│ ├── menuItem.js
+│ └── person.js
 ├── routes/
+│ ├── menuRoutes.js
 │ └── personRoutes.js
+├── db.js
 ├── server.js
 ├── .env
 └── package.json
-
-yaml
-Copy
-Edit
 
 ---
 
@@ -48,13 +47,21 @@ Edit
 
 | Method | Endpoint            | Description            |
 |--------|---------------------|------------------------|
-| GET    | /api/people         | Get all people         |
-| GET    | /api/people/:id     | Get a person by ID     |
-| POST   | /api/people         | Add a new person       |
-| PUT    | /api/people/:id     | Update a person by ID  |
-| DELETE | /api/people/:id     | Delete a person by ID  |
+| GET    | /api/person         | Get all people         |
+| GET    | /api/person/:id     | Get a person by ID     |
+| POST   | /api/person         | Add a new person       |
+| PUT    | /api/person/:id     | Update a person by ID  |
+| DELETE | /api/person/:id     | Delete a person by ID  |
 
-> Add more routes here if you’ve added other resources like menu items.
+### 🍽️ Menu Routes
+
+| Method | Endpoint            | Description            |
+|--------|---------------------|------------------------|
+| GET    | /api/menu           | Get all menuItem       |
+| GET    | /api/menu/:id       | Get a menuItem by ID   |
+| POST   | /api/menu           | Add a new menuItem     |
+| PUT    | /api/menu/:id       | Update menuItem by ID  |
+| DELETE | /api/menu/:id       | Delete menuItem by ID  |
 
 ---
 
