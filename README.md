@@ -65,24 +65,29 @@ Edit
 ```bash
 git clone https://github.com/your-username/restaurant-backend.git
 cd restaurant-backend
-2. Install dependencies
-bash
-Copy
-Edit
+```
+
+### 2. Install dependencies
+
+```bash
 npm install
-3. Setup environment variables
+```
+
+### 3. Setup environment variables
+
 Create a .env file and add your MongoDB connection string:
 
-ini
-Copy
-Edit
+```.env
 MONGODB_URI=your_mongo_connection_string
+```
+
 4. Start the server
-bash
-Copy
-Edit
+
+```bash
 npm start
-📚 What I Learned
+```
+
+### 📚 What I Learned
 Setting up Express servers and routes
 
 Connecting Node.js to MongoDB
@@ -93,8 +98,8 @@ Organizing backend code cleanly
 
 Handling requests, responses, and errors effectively
 
-🧪 Testing
+### 🧪 Testing
 Use Postman or any REST client to test the API endpoints.
 
-📌 Notes
+### 📌 Notes
 This project is for learning purposes only. Feel free to fork it and build more features on top like authentication, file uploads, or frontend integration.
