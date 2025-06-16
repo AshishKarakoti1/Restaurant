@@ -65,24 +65,43 @@
 const PORT = process.env.PORT || 3000;
 const express = require('express');
 const app = express();
-const db = require('./db');
 require('dotenv').config();
 
+// MongoDB connection
+const db = require('./db');
+
+// Passport setup
+const passport = require('./auth'); // require your auth file to initialize strategy
+const localAuthMiddleWare = passport.authenticate('local', { session: false });
+
+// Body Parser middleware
 const bodyParser = require('body-parser');
 app.use(bodyParser.json()); // req.body
 
-app.get('/', (req, res) => {
-    res.send("Welcome to our Restaurant !");
-})
+// Custom Logger Middleware
+const logRequest = (req, res, next) => {
+    console.log(`[${new Date().toLocaleString()}] Request Made to : ${req.originalUrl}`);
+    next();
+};
+app.use(logRequest);
 
-// Import router files
+// Initialize passport middleware
+app.use(passport.initialize());
+
+// Routes
+app.get('/', localAuthMiddleWare, (req, res) => {
+    res.send("Welcome to our Restaurant !");
+});
+
+// Routers
 const personRoutes = require('./routes/personRoutes');
 const menuRoutes = require('./routes/menuRoutes');
 
-// use the routers
-app.use('/person', personRoutes);
+// Use routes
+app.use('/person', localAuthMiddleWare, personRoutes);
 app.use('/menu', menuRoutes);
 
+// Start server
 app.listen(PORT, () => {
-    console.log("listening on port" + `${PORT}`);
+    console.log(`Listening on port ${PORT}`);
 });
