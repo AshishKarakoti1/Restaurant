@@ -98,7 +98,7 @@ const personRoutes = require('./routes/personRoutes');
 const menuRoutes = require('./routes/menuRoutes');
 
 // Use routes
-app.use('/person', localAuthMiddleWare, personRoutes);
+app.use('/person', personRoutes);
 app.use('/menu', menuRoutes);
 
 // Start server
